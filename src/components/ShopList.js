@@ -1,31 +1,24 @@
 import React from "react";
 
-// Mock data for shops
-const shops = [
-  { id: 1, name: "Tech Hub", distance: "1.2 km", location: "Colombo" },
-  { id: 2, name: "Gadget Galaxy", distance: "3.5 km", location: "Kandy" },
-  { id: 3, name: "Smart Store", distance: "0.8 km", location: "Galle" },
-];
-
-function ShopList() {
+function ShopList({ shops, onShopClick }) {
   return (
-    <div className="p-4 bg-white shadow-lg rounded-lg max-w-4xl mx-auto mt-8">
-      <h2 className="text-2xl font-bold mb-6 text-center text-gray-900">Nearby Shops</h2>
-      <ul className="space-y-4">
-        {shops.map((shop) => (
-          <li key={shop.id} className="bg-blue-50 p-4 rounded-lg shadow-sm hover:bg-blue-100 transition duration-300">
-            <div className="flex justify-between items-center">
-              <div>
-                <h3 className="text-xl font-semibold text-blue-600">{shop.name}</h3>
-                <p className="text-gray-600">{shop.location}</p>
-              </div>
-              <div>
-                <p className="text-gray-500">{shop.distance}</p>
-              </div>
-            </div>
-          </li>
-        ))}
-      </ul>
+    <div className="p-4 max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {shops.length === 0 ? (
+        <p className="text-center text-xl text-gray-700">No shops found.</p>
+      ) : (
+        shops.map((shop) => (
+          <div
+            key={shop.id}
+            className="border rounded-lg p-4 hover:shadow-lg cursor-pointer"
+            onClick={() => onShopClick(shop)}
+          >
+            <h2 className="text-xl font-semibold text-blue-600">{shop.name}</h2>
+            <p className="text-gray-700">{shop.category}</p>
+            <p className="text-sm text-gray-500">{shop.location}</p>
+            <p className="mt-2 text-gray-600">{shop.description}</p>
+          </div>
+        ))
+      )}
     </div>
   );
 }

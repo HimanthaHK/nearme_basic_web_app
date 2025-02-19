@@ -1,10 +1,13 @@
-// src/components/Footer.js
 import React from "react";
 
 function Footer() {
   return (
-    <footer className="p-4 bg-gray-800 text-white text-center">
-      <p>&copy; 2025 nearMe. All rights reserved.</p>
+    <footer className="bg-gray-800 text-white py-4 mt-8">
+      <div className="max-w-7xl mx-auto text-center">
+        <p className="text-sm">
+          &copy; {new Date().getFullYear()} nearMe. All rights reserved.
+        </p>
+      </div>
     </footer>
   );
 }
