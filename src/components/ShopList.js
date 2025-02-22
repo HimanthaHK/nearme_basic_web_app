@@ -10,12 +10,29 @@ function ShopList({ shops, onShopClick }) {
           <div
             key={shop.id}
             className="border rounded-lg p-4 hover:shadow-lg cursor-pointer"
-            onClick={() => onShopClick(shop)}
           >
             <h2 className="text-xl font-semibold text-blue-600">{shop.name}</h2>
             <p className="text-gray-700">{shop.category}</p>
             <p className="text-sm text-gray-500">{shop.location}</p>
             <p className="mt-2 text-gray-600">{shop.description}</p>
+
+            {/* View on Map Button */}
+            <div className="mt-4 flex justify-between">
+              <button
+                onClick={() => onShopClick(shop)}
+                className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+              >
+                View Details
+              </button>
+              <a
+                href={`https://www.google.com/maps?q=${shop.latitude},${shop.longitude}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700"
+              >
+                View on Map
+              </a>
+            </div>
           </div>
         ))
       )}
