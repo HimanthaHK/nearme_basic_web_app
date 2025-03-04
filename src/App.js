@@ -104,7 +104,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-cover bg-center" style={{ backgroundImage: "url('/gg.avif')" }}>
+    
 
     
     <div>
@@ -162,7 +162,7 @@ function App() {
 
       <Footer />
     </div>
-    </div>
+    
   );
 }
 
